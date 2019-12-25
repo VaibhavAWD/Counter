@@ -42,6 +42,17 @@ class CounterActivity : AppCompatActivity() {
         }
     }
 
+    override fun onPause() {
+        super.onPause()
+        // as we don't provide any button to save counter data
+        // so we take care of it by saving it automatically
+        saveCounterData()
+    }
+
+    private fun saveCounterData() {
+        binding.viewmodel?.saveCounter()
+    }
+
     private fun resetCounter() {
         binding.viewmodel?.reset()
     }

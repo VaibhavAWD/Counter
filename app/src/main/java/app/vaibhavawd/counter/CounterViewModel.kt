@@ -2,8 +2,8 @@ package app.vaibhavawd.counter
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import app.vaibhavawd.counter.data.CounterData
 
 class CounterViewModel : ViewModel() {
 
@@ -16,6 +16,18 @@ class CounterViewModel : ViewModel() {
 
     private val _cycles = MutableLiveData(0)
     val cycles: LiveData<Int> = _cycles
+
+    init {
+        loadCounter()
+    }
+
+    private fun loadCounter() {
+        val counterData = CounterData.getCounter()
+        counterData?.let {
+            _counter.value = it.counter
+            _cycles.value = it.cycles
+        }
+    }
 
     fun onCount() {
         if (_counter.value!! == FREQUENCY) {
@@ -31,5 +43,12 @@ class CounterViewModel : ViewModel() {
     fun reset() {
         _counter.value = 0
         _cycles.value = 0
+        CounterData.resetCounter()
+    }
+
+    fun saveCounter() {
+        val currentCounter = _counter.value ?: 0
+        val currentCycles = _cycles.value ?: 0
+        CounterData.setCounter(currentCounter, currentCycles)
     }
 }

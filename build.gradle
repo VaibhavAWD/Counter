@@ -29,4 +29,5 @@ task clean(type: Delete) {
 
 ext {
     lifecycle_version = "2.2.0-rc03"
+    paperdb_version = "2.6"
 }

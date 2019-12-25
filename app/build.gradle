@@ -45,4 +45,7 @@ dependencies {
     // Lifecycle - ViewModel and LiveData
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+
+    // Paper - NoSQLite
+    implementation "io.paperdb:paperdb:$paperdb_version"
 }
