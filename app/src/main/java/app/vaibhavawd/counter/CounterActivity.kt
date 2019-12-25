@@ -38,6 +38,10 @@ class CounterActivity : AppCompatActivity() {
                 resetCounter()
                 true
             }
+            R.id.action_frequency -> {
+                openFrequencyDialog()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -55,5 +59,14 @@ class CounterActivity : AppCompatActivity() {
 
     private fun resetCounter() {
         binding.viewmodel?.reset()
+    }
+
+    private fun openFrequencyDialog() {
+        val frequencyFragment = FrequencyFragment()
+        frequencyFragment.show(supportFragmentManager, TAG_FREQUENCY_FRAGMENT)
+    }
+
+    companion object {
+        private const val TAG_FREQUENCY_FRAGMENT = "app.vaibhavawd.counter.TAG_FREQUENCY_FRAGMENT"
     }
 }

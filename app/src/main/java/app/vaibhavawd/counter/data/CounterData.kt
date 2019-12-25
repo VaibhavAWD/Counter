@@ -6,9 +6,9 @@ object CounterData {
 
     private const val KEY_COUNTER = "app.vaibhavawd.counter.data.KEY_COUNTER"
 
-    fun setCounter(counter: Int, cycles: Int) {
-        val counterData = Counter(counter, cycles)
-        Paper.book().write(KEY_COUNTER, counterData)
+    fun setCounter(counter: Int, cycles: Int, frequency: Int) {
+        val newCounter = Counter(counter, cycles, frequency)
+        Paper.book().write(KEY_COUNTER, newCounter)
     }
 
     fun getCounter(): Counter? {
@@ -16,6 +16,8 @@ object CounterData {
     }
 
     fun resetCounter() {
-        Paper.book().delete(KEY_COUNTER)
+        val currentFrequency = getCounter()?.frequency ?: 10
+        val newCounter = Counter(0, 0, currentFrequency)
+        Paper.book().write(KEY_COUNTER, newCounter)
     }
 }

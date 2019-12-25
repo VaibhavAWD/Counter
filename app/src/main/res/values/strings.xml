@@ -2,4 +2,8 @@
     <string name="app_name">Counter</string>
     <string name="display_cycles">Cycles - %1d</string>
     <string name="action_reset">Reset</string>
+    <string name="hint_frequency">eg. 108</string>
+    <string name="frequency_dialog_title">Counter Cycle Frequency</string>
+    <string name="btn_set">SET</string>
+    <string name="action_frequency">Adjust Frequency</string>
 </resources>
