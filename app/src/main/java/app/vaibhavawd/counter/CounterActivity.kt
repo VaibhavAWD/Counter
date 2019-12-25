@@ -2,6 +2,8 @@ package app.vaibhavawd.counter
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import app.vaibhavawd.counter.databinding.ActivityCounterBinding
@@ -23,5 +25,24 @@ class CounterActivity : AppCompatActivity() {
             viewmodel = viewModel
             lifecycleOwner = this@CounterActivity
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.activity_counter, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_reset -> {
+                resetCounter()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun resetCounter() {
+        binding.viewmodel?.reset()
     }
 }

@@ -27,4 +27,9 @@ class CounterViewModel : ViewModel() {
             _cycles.value = (_cycles.value ?: 0) + 1
         }
     }
+
+    fun reset() {
+        _counter.value = 0
+        _cycles.value = 0
+    }
 }

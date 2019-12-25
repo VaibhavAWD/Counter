@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Counter</string>
     <string name="display_cycles">Cycles - %1d</string>
+    <string name="action_reset">Reset</string>
 </resources>
