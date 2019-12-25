@@ -1,6 +1,5 @@
 package app.vaibhavawd.counter
 
-import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
 import app.vaibhavawd.counter.databinding.FragmentFrequencyBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.fragment_frequency.*
 
 class FrequencyFragment : DialogFragment() {
@@ -18,7 +18,7 @@ class FrequencyFragment : DialogFragment() {
     private lateinit var binding: FragmentFrequencyBinding
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val dialog = AlertDialog.Builder(context)
+        val dialog = MaterialAlertDialogBuilder(context)
         dialog.setTitle(getString(R.string.frequency_dialog_title))
 
         activity?.let {
