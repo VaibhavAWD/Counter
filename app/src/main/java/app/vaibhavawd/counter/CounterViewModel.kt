@@ -5,6 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import app.vaibhavawd.counter.data.CounterData
 
+const val DEFAULT_FREQUENCY = 10
+private const val FREQUENCY_THRESHOLD = 10000
+
 class CounterViewModel : ViewModel() {
 
     private val _counter = MutableLiveData(0)
@@ -13,7 +16,7 @@ class CounterViewModel : ViewModel() {
     private val _cycles = MutableLiveData(0)
     val cycles: LiveData<Int> = _cycles
 
-    private val _frequency = MutableLiveData(10)
+    private val _frequency = MutableLiveData(DEFAULT_FREQUENCY)
     val frequency: LiveData<Int> = _frequency
 
     init {
@@ -48,10 +51,16 @@ class CounterViewModel : ViewModel() {
 
     fun setFrequency(value: String) {
         (Integer.parseInt(value)).let {
-            if (it == 0) {
-                _frequency.value = 10
-            } else {
-                _frequency.value = it
+            when {
+                it == 0 -> {
+                    _frequency.value = 10
+                }
+                it > FREQUENCY_THRESHOLD -> {
+                    _frequency.value = FREQUENCY_THRESHOLD
+                }
+                else -> {
+                    _frequency.value = it
+                }
             }
         }
         saveCounter()
