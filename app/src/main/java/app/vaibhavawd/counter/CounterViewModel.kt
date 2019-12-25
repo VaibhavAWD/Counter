@@ -47,7 +47,13 @@ class CounterViewModel : ViewModel() {
     }
 
     fun setFrequency(value: String) {
-        _frequency.value = Integer.parseInt(value)
+        (Integer.parseInt(value)).let {
+            if (it == 0) {
+                _frequency.value = 10
+            } else {
+                _frequency.value = it
+            }
+        }
         saveCounter()
         // as the frequency has been changed so
         // it is a good idea to reset the counter
