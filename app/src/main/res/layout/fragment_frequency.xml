@@ -19,11 +19,14 @@
             android:id="@+id/input_frequency"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@null"
             android:gravity="center"
             android:hint="@string/hint_frequency"
-            android:imeOptions="actionDone"
+            android:imeOptions="flagNoExtractUi|actionDone"
             android:inputType="number"
             android:text="@{Integer.toString(viewmodel.frequency)}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="bold"
             tools:ignore="Autofill,TextFields" />
 
     </LinearLayout>
