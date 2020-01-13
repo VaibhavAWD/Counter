@@ -51,4 +51,9 @@ dependencies {
 
     // Paper - NoSQLite
     implementation "io.paperdb:paperdb:$paperdb_version"
+
+    // Instrumented Testing Dependencies
+    androidTestImplementation "androidx.test.ext:junit:$androidXTestExtJUnitVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+    androidTestImplementation "com.google.truth:truth:$truthVersion"
 }

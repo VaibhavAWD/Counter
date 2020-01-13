@@ -31,4 +31,10 @@ ext {
     material_version = "1.2.0-alpha03"
     lifecycle_version = "2.2.0-rc03"
     paperdb_version = "2.6"
+
+    // testing dependencies
+    androidXTestExtJUnitVersion = '1.1.1'
+    espressoVersion = "3.2.0"
+    truthVersion = '0.44'
+
 }
